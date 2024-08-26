@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-custom {
+            background-image: url(img/Pink\ And\ Gray\ Modern\ Desktop\ Wallpaper\ \(1\).png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blur-background {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .bg-custom {
+            background-image: url(img/Pink\ And\ Gray\ Modern\ Desktop\ Wallpaper\ \(1\).png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .rounded-background {
+            display: inline-block;
+            background-color: #25795d; /* Warna background */
+            color: white; /* Warna teks */
+            padding: 3px 20px;
+            border-radius: 50px; /* Membuat bentuk lonjong */
+            font-size: 15px; /* Ukuran teks */
+            font-weight: 600; /* Ketebalan teks */
+        } 
+
+
+    </style>
+    <script>
+        function validateForm() {
+            const nama = document.getElementById("nama").value;
+            const nisn = document.getElementById("nisn").value;
+            const email = document.getElementById("email").value;
+            const namaPattern = /^[a-zA-Z\s]+$/;
+            const nisnPattern = /^[0-9]+$/;
+
+            if (!namaPattern.test(nama)) {
+                alert("Nama hanya boleh mengandung huruf dan spasi.");
+                return false;
+            }
+
+            if (!nisnPattern.test(nisn)) {
+                alert("NISN hanya boleh mengandung angka.");
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Format email tidak valid.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body class="bg-custom min-h-screen">
+    <!-- nav -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://ppdbjatim.net/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="img/logo-provinsi-jawa-timur.png" class="h-10" alt="Jatim Logo" />
+                <span class="self-center text-1xl rounded-background font-semibold whitespace-nowrap dark:text-white">PPDB Jawa Timur</span>
+            </a>
+           
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="home.html" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-green-700 md:dark:text-green-500" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- form -->
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white bg-opacity-20 p-8 rounded-lg shadow-lg w-full max-w-md blur-background">
+            <h2 class="text-2xl font-bold mb-6 text-center">Form Pendaftaran PPDB</h2>
+            <form name="formku" action="#" method="POST" onsubmit="return validateForm()">
+                <form name="formku" action="#" method="POST" onsubmit="return validateForm()">
+                    <div class="mb-4">
+                        <label for="nama" class="block text-black-700 text-sm font-bold mb-2">Nama Lengkap:</label>
+                        <input type="text" id="nama" name="nama" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="nisn" class="block text-black-700 text-sm font-bold mb-2">NISN:</label>
+                        <input type="text" id="nisn" name="nisn" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan NISN" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-black-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="text" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan email" required>
+                    </div> 
+                    <div class="mb-4">
+                        <label for="asal" class="block text-black-700 text-sm font-bold mb-2">Asal Sekolah:</label>
+                        <input type="text" id="asal" name="asal" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan Asal Sekolah" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="alamat" class="block text-black-700 text-sm font-bold mb-2">Alamat:</label>
+                        <input type="text" id="alamat" name="alamat" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan Alamat" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="jalur" class="block text-black-700 text-sm font-bold mb-2">Pilih Jalur Pendaftaran:</label>
+                        <select id="jalur" name="jalur" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                            <option value="" disabled selected>Pilih Jalur Pendaftaran</option>
+                            <option value="Prestasi">Prestasi</option>
+                            <option value="Zonasi">Zonasi</option>
+                            <option value="Afirmasi">Afirmasi</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="jurusan" class="block text-black-700 text-sm font-bold mb-2">Pilih Jurusan:</label>
+                        <select id="jurusan" name="jurusan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                            <option value="" disabled selected>Pilih Jurusan Pilihan Anda</option>
+                            <option value="RPL">RPL</option>
+                            <option value="DKV">DKV</option>
+                            <option value="TKJ">TKJ</option>
+                            <option value="MKT">MKT</option>
+                            <option value="TPM">TPM</option>
+                            <option value="TKR">TKR</option>
+                            <option value="TBKR">TBKR</option>
+                            <option value="TL">TL</option>
+                            <option value="APHP">APHP</option>
+                            <option value="ATPH">ATPH</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button type="submit" class="bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Daftar
+                        </button>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+</html>
